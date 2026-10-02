@@ -1,0 +1,29 @@
+* Meu tempo de reação para desligar o cronômetro parece ser de 0,20s a 0,50s
+
+A->D (90°)
+Tempo (s):
+13,43
+12,96
+13,45
+13,38
+13,46
+13,45
+13,55
+13,52
+13,48
+13,39
+
+Média: 13,407s
+
+Velocidade média: 6,71 °/s ou 117 mrad/s
+
+Tempo esperado para 180°: 26,814s
+
+A->G (180°)
+Tempo (s):
+25,84
+25,89
+25,84
+25,73
+25,84
+25,83

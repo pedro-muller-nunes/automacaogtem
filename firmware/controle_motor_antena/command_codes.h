@@ -1,0 +1,35 @@
+#define STR_LEFT "L"
+#define STR_RIGHT "R"
+#define STR_A "POS_A"
+#define STR_B "POS_B"
+#define STR_C "POS_C"
+#define STR_D "POS_D"
+#define STR_E "POS_E"
+#define STR_F "POS_F"
+#define STR_G "POS_G"
+#define STR_H "POS_H"
+#define STR_I "POS_I"
+#define STR_J "POS_J"
+#define STR_U "POS_U"
+#define STR_L "POS_L"
+#define STR_INITIAL "INI"
+#define STR_MEMORY "MEM"
+
+#define HEX_LEFT 0x43
+#define HEX_RIGHT 0x45
+#define HEX_A 0x44
+#define HEX_B 0x7
+#define HEX_C 0x9
+#define HEX_D 0x40
+#define HEX_E 0x19
+#define HEX_F 0x16
+#define HEX_G 0xC
+#define HEX_H 0x18
+#define HEX_I 0x5E
+#define HEX_J 0x8
+#define HEX_U 0x1C
+#define HEX_L 0x5A
+#define HEX_INITIAL 0x42
+#define HEX_MEMORY 0x4A
+
+#define NULL_HEX 0x0

@@ -1,0 +1,31 @@
+- Colocar o código no Git?
+* Organizei a estrutura do projeto: testar todos os "executáveis".
+* Adicionar arquivo que diz as depedências do projeto.
+
+
+Controle remoto via SCPI: https://www.rohde-schwarz.com/webhelp/Remote_Control_SCPI_HTML_GettingStarted/Content/welcome.htm
+Padrão SCPI: https://www.ivifoundation.org/downloads/SCPI/scpi-99.pdf
+Referência de código: https://github.com/Rohde-Schwarz/Examples/blob/main/SpectrumAnalyzers/Python/RsInstrument/RsInstrument_FSH_Screenshot_to_PC.py
+Manual do controle remoto do FSH4: http://www.av.it.pt/medidas/data/Manuais%20&%20Tutoriais/63%20&%20-Handheld%20hSpetrum%20Analyser/Software%20&%20Documentation/documents/Manuals/FSH-K40_RemoteCommands_en_FW2.50.pdf
+
+FSH4:
+- Métodos para ajustar nível e offset de referência - atenuação, preamplificador e impedância também.
+- Fazer a "configuração padrão".
+- Aprender a usar trace e memória.
+- Outros modos: analisador de rede, etc.
+- Salvar medições em arquivos (trace ou outra forma mesmo).
+- Checar erros na fila de comandos: SYST:ERR:ALL? para todos e SYST:ERR? para o último.
+
+* Parece que mexer com os comandos de ref faz com que desregule e fique 4dB a mais na medida - aconteceu uma vez.
+
+Controlar Motor:
+PySerial para comunicar com Arduino (Pro Micro, Nano?)
+https://www.pyserial.com/docs/arduino-integration
+
+Serial (para usar Arduino):
+- time.sleep é bom?
+- Como saber que o comando foi executado? Controle não tem transmissor...
+    - Tem um sistema de rastreamento do ângulo baseado em tempo.
+    - Alternativa: sensor mesmo.
+    * Por enquanto, ver qual é a velocidade de rotação do motor.
+* Parece que às vezes o comando sai certo mas faz a ação errada - aconteceu quando executei muitas vezes seguidas.
