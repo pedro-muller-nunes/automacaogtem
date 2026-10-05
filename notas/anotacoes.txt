@@ -1,4 +1,3 @@
-- Colocar o código no Git?
 * Organizei a estrutura do projeto: testar todos os "executáveis".
 * Adicionar arquivo que diz as depedências do projeto.
 

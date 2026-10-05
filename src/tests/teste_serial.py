@@ -1,8 +1,8 @@
 import time
 
-from src.classes.Arduino import Arduino
+from src.classes.ArduinoSerial import ArduinoSerial
 
-arduino = Arduino(4, baudrate=9600, timeout=1)
+arduino = ArduinoSerial(4, baudrate=9600, timeout=1)
 # arduino.dtr = True # Ver o que faz e se precisa
 # arduino.rts = True
 time.sleep(2)
@@ -11,34 +11,12 @@ arduino.reset_input_buffer()
 arduino.reset_output_buffer()
 time.sleep(2)
 
-comando = "R"
-arduino.send_command(comando)
-time.sleep(0.01)
+arduino.send_command("POS_A")
 print(arduino.read_ascii())
-time.sleep(0.01)
+time.sleep(2)
 
-# tempo = 3
-#
-# for i in range(20):
-#     arduino.send_command("R")
-#     time.sleep(0.01)
-#     arduino.read_ascii()
-#     time.sleep(tempo)
-#     arduino.send_command("R")
-#     time.sleep(0.01)
-#     arduino.read_ascii()
-#     time.sleep(tempo)
-#     arduino.send_command("POS_B")
-#     time.sleep(0.01)
-#     arduino.read_ascii()
-#     time.sleep(tempo)
-
-
-# for i in range(10):
-#     arduino.send_command(comando)
-#     time.sleep(0.01) # Essencial o tempo entre enviar o comando e ler a resposta
-#     arduino.read_ascii()
-#     time.sleep(0.01)
+arduino.send_command("R")
+print(arduino.read_ascii())
 
 # print(f'Comando: \"{comando}\"')
 # print(f'Resposta: \"{res}\"')
