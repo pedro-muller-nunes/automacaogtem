@@ -34,7 +34,6 @@ class ArduinoSerial(Serial):
 
         return response
 
-    # Enviar múltiplos com uma lista de comandos... testar
     def send_and_read_list(self, commands: list, sleep_btwn_write_read: float | int | None = None, sleep_btwn_commands : int | float | None = None) -> list:
         if sleep_btwn_write_read is None:
             sleep_btwn_write_read = self.write_read_sleep_time

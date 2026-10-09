@@ -39,7 +39,7 @@ void loop() {
     int code = commandToCode(command);
 
     int repeats = 0;
-    //repeats = (code == HEX_LEFT || code == HEX_RIGHT) ? REP_ARROW : 1;
+    //repeats = (code == HEX_LEFT || code == HEX_RIGHT) ? REP_ARROW : 0;
 
     // Talvez mudar as mensagens...
     if (code != 0x0) {
