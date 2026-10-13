@@ -1,9 +1,12 @@
 # Rotinas, ensaios específicos... a fazer
+import time
+
+from src.classes.ArduinoSerial import ArduinoSerial
 from src.classes.FSH4 import FSH4
 from src.classes.SMB100A import SMB100A
 
 
-def config_padrao(fsh: FSH4, smb: SMB100A):
+def config_rs(fsh: FSH4, smb: SMB100A):
     fsh.auto_attenuation_on()
     fsh.set_attenuation_mode('LNO') # Ver qual é mais adequado...
     fsh.set_ref_level(0)
@@ -64,3 +67,14 @@ def varredura_simples(fsh: FSH4, smb: SMB100A, freq : float | int, level : float
     print(f'Pico: {x_max:.7e} Hz {y_max:.2f} dBm')
 
     # fsh.cont_sweep_on() # Opcional
+
+def config_rotor(arduino: ArduinoSerial):
+    arduino.dtr = True # Ver o que faz e se precisa
+    arduino.rts = True
+    time.sleep(arduino.timeout)
+
+    arduino.reset_input_buffer()
+    arduino.reset_output_buffer()
+    time.sleep(arduino.timeout)
+
+# def mover_rotor(arduino: ArduinoSerial):

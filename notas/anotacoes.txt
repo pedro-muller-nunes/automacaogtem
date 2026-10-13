@@ -27,4 +27,3 @@ Serial (para usar Arduino):
     - Tem um sistema de rastreamento do ângulo baseado em tempo.
     - Alternativa: sensor mesmo.
     * Por enquanto, ver qual é a velocidade de rotação do motor.
-* Parece que às vezes o comando sai certo mas faz a ação errada - aconteceu quando executei muitas vezes seguidas.

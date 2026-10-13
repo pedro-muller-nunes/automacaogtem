@@ -47,3 +47,6 @@ class ArduinoSerial(Serial):
             time.sleep(sleep_btwn_commands)
 
         return response
+
+    def go_to_pos(self, position : str, sleep : float | int = 0) -> str:
+        return self.send_and_read(f'POS_{position}', sleep)
