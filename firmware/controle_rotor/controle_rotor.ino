@@ -4,7 +4,7 @@
 
 #define SERIAL_PORT 9600
 #define TR_PIN 3
-//#define REP_ARROW 0
+#define REP_ARROW 3
 
 int commandToCode(String command) {
   if (command == STR_LEFT) return HEX_LEFT;
@@ -39,7 +39,7 @@ void loop() {
     int code = commandToCode(command);
 
     int repeats = 0;
-    //repeats = (code == HEX_LEFT || code == HEX_RIGHT) ? REP_ARROW : 0;
+    repeats = (code == HEX_LEFT || code == HEX_RIGHT) ? REP_ARROW : 0;
 
     // Talvez mudar as mensagens...
     if (code != 0x0) {

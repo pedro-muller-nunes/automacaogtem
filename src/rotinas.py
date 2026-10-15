@@ -77,4 +77,9 @@ def config_rotor(arduino: ArduinoSerial):
     arduino.reset_output_buffer()
     time.sleep(arduino.timeout)
 
-# def mover_rotor(arduino: ArduinoSerial):
+def calibrar_rotor(arduino: ArduinoSerial):
+    arduino.send_and_read("POS_L")
+    time.sleep(60) # Tempo médio para ir de 0 a 360 (fazer mais medições)
+    arduino.send_and_read("INI")
+    time.sleep(60)
+    arduino.send_and_read("POS_A")
