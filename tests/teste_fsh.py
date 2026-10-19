@@ -2,7 +2,7 @@ from dotenv import dotenv_values
 
 from src.classes.FSH4 import FSH4
 
-config = dotenv_values('../../.env')
+config = dotenv_values('../.env')
 
 ip_fsh = config.get('IP_FSH') or 'Erro'
 
