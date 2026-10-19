@@ -48,27 +48,27 @@ Neste código, o microcontrolador é acessado pela classe "ArduinoSerial".
 ## Estrutura do código
 ```
 automacaogtem/
-├── .env
+├── .env                        # Variáveis de ambiente, neste caso são os IPs dos instrumentos R&S
 ├── .gitignore
-├── main.py
+├── main.py                     # Código principal
 ├── README.md
 ├── requirements.txt            # Dependências
 │
 ├── firmware/                   # Código do microcontrolador
 │   └── controle_rotor/
-│       └── commmand_codes.h
-│       └── controle_rotor.ino  # Nome da pasta e do arquivo .ino devem ser iguais
+│       └── commmand_codes.h    # Códigos do controle remoto do AR-500
+│       └── controle_rotor.ino  
 │
 ├── src/                        # Código-fonte Python
 │   ├── classes/
-│   │   ├── ArduinoSerial.py
+│   │   ├── ArduinoSerial.py    # Classe para comunicação com microcontrolador
 │   │   ├── FSH4.py
-│   │   ├── Instrument.py
+│   │   ├── Instrument.py       # Classe que herda RsInstrument e é herdada pelos instrumentos R&S
 │   │   └── SMB100A.py
-│   └── rotinas.py
+│   └── rotinas.py              # Rotinas comuns de configuração, varredura, etc.
 │
-└── tests/                      # Testes unitários / scripts de validação
+└── tests/
     └── ...
 ```
 
-... Breve explicação...
+* No código-fonte Python, as classes estão documentadas com *docstrings*.
