@@ -61,7 +61,7 @@ automacaogtem/
 │
 ├── src/                        # Código-fonte Python
 │   ├── classes/
-│   │   ├── MicroSerial.py    # Classe para comunicação com microcontrolador
+│   │   ├── MicroSerial.py      # Classe para comunicação com microcontrolador
 │   │   ├── FSH4.py
 │   │   ├── Instrument.py       # Classe que herda RsInstrument e é herdada pelos instrumentos R&S
 │   │   └── SMB100A.py
