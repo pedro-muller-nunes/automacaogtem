@@ -48,7 +48,7 @@ Neste código, o microcontrolador é acessado pela classe "MicroSerial".
 ## Estrutura do código
 ```
 automacaogtem/
-├── .env                        # Variáveis de ambiente, neste caso são os IPs dos instrumentos R&S
+├── .env (ignorada pelo git)    # Variáveis de ambiente, neste caso são os IPs dos instrumentos R&S
 ├── .gitignore
 ├── main.py                     # Código principal
 ├── README.md
@@ -62,13 +62,13 @@ automacaogtem/
 ├── src/                        # Código-fonte Python
 │   ├── classes/
 │   │   ├── MicroSerial.py      # Classe para comunicação com microcontrolador
-│   │   ├── FSH4.py
+│   │   ├── FSH4.py             # Classe para uso do FSH4
 │   │   ├── Instrument.py       # Classe que herda RsInstrument e é herdada pelos instrumentos R&S
-│   │   └── SMB100A.py
+│   │   └── SMB100A.py          # Classe para uso do SMB100A
 │   └── rotinas.py              # Rotinas comuns de configuração, varredura, etc.
 │
 └── tests/
     └── ...
 ```
 
-* No código-fonte Python, as classes estão documentadas com *docstrings*.
+* No código-fonte Python, as classes estão documentadas com *docstrings*. Use ```help()``` para acessá-las.
