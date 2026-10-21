@@ -1,7 +1,7 @@
 # Rotinas, ensaios específicos... a fazer
 import time
 
-from src.classes.ArduinoSerial import ArduinoSerial
+from src.classes.MicroSerial import MicroSerial
 from src.classes.FSH4 import FSH4
 from src.classes.SMB100A import SMB100A
 
@@ -68,18 +68,18 @@ def varredura_simples(fsh: FSH4, smb: SMB100A, freq : float | int, level : float
 
     # fsh.cont_sweep_on() # Opcional
 
-def config_rotor(arduino: ArduinoSerial):
-    arduino.dtr = True # Ver o que faz e se precisa
-    arduino.rts = True
-    time.sleep(arduino.timeout)
+def config_rotor(micro: MicroSerial):
+    micro.dtr = True # Ver o que faz e se precisa
+    micro.rts = True
+    time.sleep(micro.timeout)
 
-    arduino.reset_input_buffer()
-    arduino.reset_output_buffer()
-    time.sleep(arduino.timeout)
+    micro.reset_input_buffer()
+    micro.reset_output_buffer()
+    time.sleep(micro.timeout)
 
-def calibrar_rotor(arduino: ArduinoSerial):
-    arduino.send_and_read("POS_L")
+def calibrar_rotor(micro: MicroSerial):
+    micro.send_and_read("POS_L")
     time.sleep(60) # Tempo médio para ir de 0 a 360 (fazer mais medições)
-    arduino.send_and_read("INI")
+    micro.send_and_read("INI")
     time.sleep(60)
-    arduino.send_and_read("POS_A")
+    micro.send_and_read("POS_A")

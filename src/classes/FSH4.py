@@ -2,7 +2,6 @@ from src.classes.Instrument import Instrument
 
 # Fazer:
 # Pegar trace.
-# docstrings: precisa melhorar o padrão?
 
 class FSH4(Instrument):
     def __init__(self, ip: str, options: str | None = None):
@@ -66,25 +65,32 @@ class FSH4(Instrument):
     # Atenuação
 
     def is_auto_attenuation_on(self) -> bool:
+        """Verifica se a atenuação automática está ligada."""
         return self.query_bool('INP:ATT:AUTO?')
 
     def auto_attenuation_on(self) -> None:
+        """Liga a atenuação automática."""
         self.write('INP:ATT:AUTO ON')
 
     def auto_attenuation_off(self) -> None:
+        """Desliga a atenuação automática."""
         self.write('INP:ATT:AUTO OFF')
 
     def get_attenuation(self) -> float | int:
+        """Retorna o valor da atenuação."""
         return self.query_float('INP:ATT?')
 
     def set_attenuation(self, attenuation: float | int) -> None:
+        """Define o valor da atenuação."""
         self.write(f'INP:ATT {attenuation}')
 
-    def  get_attenuation_mode(self) -> str:
+    def get_attenuation_mode(self) -> str:
+        """Retorna o modo da atenuação."""
         return self.query('INP:ATT:MODE?')
 
     # Convém trocar str por um Enum
     def set_attenuation_mode(self, mode: str) -> None:
+        """Define o modo da atenuação."""
         self.write(f'INP:ATT:MODE {mode}')
 
     # Cursores

@@ -43,7 +43,7 @@ Pode girar para a esquerda (L) e para a direita (R), possui 12
 espaços de memória para posições angulares e a possibilidade 
 de calibrar seu sistema de medição de ângulo com a tecla INITIAL.
 
-Neste código, o microcontrolador é acessado pela classe "ArduinoSerial".
+Neste código, o microcontrolador é acessado pela classe "MicroSerial".
 
 ## Estrutura do código
 ```
@@ -61,7 +61,7 @@ automacaogtem/
 │
 ├── src/                        # Código-fonte Python
 │   ├── classes/
-│   │   ├── ArduinoSerial.py    # Classe para comunicação com microcontrolador
+│   │   ├── MicroSerial.py    # Classe para comunicação com microcontrolador
 │   │   ├── FSH4.py
 │   │   ├── Instrument.py       # Classe que herda RsInstrument e é herdada pelos instrumentos R&S
 │   │   └── SMB100A.py

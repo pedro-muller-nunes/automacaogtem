@@ -1,7 +1,7 @@
 from dotenv import dotenv_values
 
 from src import rotinas
-from src.classes.ArduinoSerial import ArduinoSerial
+from src.classes.MicroSerial import MicroSerial
 from src.classes.FSH4 import FSH4
 from src.classes.SMB100A import SMB100A
 
@@ -17,7 +17,7 @@ options_fsh = 'StbInErrorCheck = False, SkipStatusSystemSettings = True, SkipCle
 fsh = FSH4(ip_fsh, options_fsh)
 smb = SMB100A(ip_smb)
 
-arduino = ArduinoSerial(4, baudrate=9600, timeout=1.2, write_read_sleep_time=0.01)
+arduino = MicroSerial(4, baudrate=9600, timeout=1.2, write_read_sleep_time=0.01)
 
 # Variáveis
 

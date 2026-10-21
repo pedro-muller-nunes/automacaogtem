@@ -1,8 +1,8 @@
 import time
 
-from src.classes.ArduinoSerial import ArduinoSerial
+from src.classes.MicroSerial import MicroSerial
 
-arduino = ArduinoSerial(4, baudrate=9600, timeout=1.2, write_read_sleep_time=0.01)
+arduino = MicroSerial(4, baudrate=9600, timeout=1.2, write_read_sleep_time=0.01)
 arduino.dtr = True # Ver o que faz e se precisa
 arduino.rts = True
 time.sleep(2)

@@ -1,6 +1,4 @@
-* Organizei a estrutura do projeto: testar todos os "executáveis".
-* Adicionar arquivo que diz as depedências do projeto.
-
+* Organizei a estrutura do projeto: testar todos os "executáveis" por garantia.
 
 Controle remoto via SCPI: https://www.rohde-schwarz.com/webhelp/Remote_Control_SCPI_HTML_GettingStarted/Content/welcome.htm
 Padrão SCPI: https://www.ivifoundation.org/downloads/SCPI/scpi-99.pdf
