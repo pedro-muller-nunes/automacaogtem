@@ -33,13 +33,7 @@ span_med = 1e6
 # Configurar rotor
 rotinas.config_rotor(arduino)
 
-# Varredura
-rotinas.varredura_simples(fsh, smb, freq, span, level, span_med)
-
-# Mexer no rotor
-
-# Fazer outra varredura
-rotinas.varredura_simples(fsh, smb, freq, span, level, span_med)
+# ...
 
 # Fechar conexões
 fsh.close()
