@@ -1,6 +1,7 @@
 import time
 
-import numpy
+import csv
+import numpy as np
 from dotenv import dotenv_values
 
 import rotinas
@@ -26,39 +27,62 @@ smb = SMB100A(ip_smb)
 
 level = 0
 freq_min = 100e3
-freq_max = 1000e3 # 3.6e9
+freq_max = 3.6e9
 span = 1e6
-sleep = 3
+sleep = 1
 
-num_freq = 10
-freqs = numpy.linspace(freq_min, freq_max, num_freq)
+csv_path = '../data/sweep_cabo4_2.csv'
+
+f_kilos = np.arange(100e3, 900e3+100e3, 100e3)
+f_megas1 = np.arange(1e6, 9e6+1e6, 1e6)
+f_megas2 = np.arange(10e6, 90e6+10e6, 10e6)
+f_megas3 = np.arange(100e6, 900e6+100e6, 100e6)
+f_gigas = np.arange(1e9, 3.6e9, 0.1e9)
+
+f_megas = np.append(np.append(f_megas1, f_megas2), f_megas3)
+freqs = np.append(np.append(f_kilos, f_megas), f_gigas)
+freqs = np.append(freqs, 3.59e9)
+
+# for f in freqs:
+#     print(f'{f:.5e}')
+# print(len(freqs))
 
 # Código principal
 
-smb.set_level(level)
+rows = []
 
-for f in freqs:
-    smb.set_freq(f)
-    fsh.set_freq_center(f)
-    fsh.set_freq_span(span)
+with open(csv_path, 'x', newline='') as csv_file:
+    csv_writer = csv.writer(csv_file)
+    csv_writer.writerow(['f', 'f_max', 'level_max'])
 
-    fsh.cont_sweep_off()
-    fsh.query_opc()
+    smb.set_level(level)
 
-    smb.output_on()
-    smb.query_opc()
+    for f in freqs:
+        smb.set_freq(f)
+        fsh.set_freq_center(f)
+        fsh.set_freq_span(span)
 
-    fsh.sweep()
-    fsh.query_opc()
+        fsh.cont_sweep_off()
+        fsh.query_opc()
 
-    smb.output_off()
-    smb.query_opc()
+        smb.output_on()
+        smb.query_opc()
 
-    fsh.set_to_peak()
-    x, y = fsh.get_marker_x(), fsh.get_marker_y()
-    print(f'{f:.3e} Hz: {x:.3e} Hz, {y} dBm')
+        fsh.sweep()
+        fsh.query_opc()
 
-    time.sleep(sleep)
+        smb.output_off()
+        smb.query_opc()
+
+        fsh.set_to_peak()
+        x, y = fsh.get_marker_x(), fsh.get_marker_y()
+        print(f'{f:.3e}, {x:.3e}, {y}') # Só para ir vendo
+
+        rows.append([f, x, y])
+
+        time.sleep(sleep)
+
+    csv_writer.writerows(rows)
 
 fsh.close()
 smb.close()
