@@ -41,7 +41,7 @@ pos = 105 # 105 é para ser o necessário, bom colocar umas a mais para redundâ
 span = 1e6
 sleep = 1
 
-csv_path = '../data/gd_horizontal_2.csv'
+csv_path = '../data/gd_hor.csv'
 
 # Principal
 with open(csv_path, 'x', newline='') as csv_file:
@@ -60,6 +60,24 @@ with open(csv_path, 'x', newline='') as csv_file:
     print('Começou')
 
     for p in range(pos):
+        if p != 0:
+            repetir_comando = True
+
+            while repetir_comando:
+                arduino.send_and_read("R")
+
+                repetir_pergunta = True
+
+                while repetir_pergunta:
+                    moveu = input("Moveu? (s/n) ")
+                    if moveu.lower() == 's':
+                        repetir_pergunta = False
+                        repetir_comando = False
+                    elif moveu.lower() == 'n':
+                        repetir_pergunta = False
+                        repetir_comando = True
+
+
         fsh.cont_sweep_off()
         fsh.query_opc()
 
@@ -70,9 +88,7 @@ with open(csv_path, 'x', newline='') as csv_file:
         x, y = fsh.get_marker_x(), fsh.get_marker_y()
         print(f'P{p} - {p*ANG_MIN:.3f}° - {x:.3e} - {y}')
 
-        csv_writer.writerow([p*ANG_MIN, x, y])
-
-        arduino.send_and_read("R")
+        csv_writer.writerow([p * ANG_MIN, x, y])
 
         time.sleep(sleep)
 
